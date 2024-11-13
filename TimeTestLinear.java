@@ -17,12 +17,10 @@ public class TimeTestLinear {
 
         int k = 0; // contador para os testes
 
-        // Listas para armazenar os tempos de cada método
         List<Long> temposCounting = new ArrayList<>();
         List<Long> temposRadix = new ArrayList<>();
         List<Long> temposBucket = new ArrayList<>();
 
-        // Loop para os testes
         while (k < Integer.parseInt(args[1])) {
             int[] arrayTest = SuportArray.arrayRInt(Integer.parseInt(args[0]), Integer.parseInt(args[2]));
             float[] arrayBucket =  SuportArray.convertToFloatInRange(arrayTest);
@@ -53,19 +51,19 @@ public class TimeTestLinear {
             k++;
         }
 
-        // Nome do arquivo CSV
+       
         String nomeArquivoCSV = "TemposExecucaoLinear" + args[0] + "entradas" + "tipoArray" + args[2] + ".csv";
 
-        // Salvar os dados no arquivo CSV
+	
         try (PrintWriter writer = new PrintWriter(new File(nomeArquivoCSV))) {
-            // Cabeçalho
+           
             writer.print("Método de Ordenação");
             for (int i = 0; i < Integer.parseInt(args[1]); i++) {
                 writer.print(",Teste " + (i + 1));
             }
             writer.println();
 
-            // Escrever os tempos para cada método
+           
             writer.print("Counting Sort");
             for (Long tempo : temposCounting) writer.print("," + tempo);
             writer.println();
