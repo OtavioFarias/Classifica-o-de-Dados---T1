@@ -3,33 +3,34 @@ package test;
 import java.util.Random;
 
 public class SuportArray {
+    //Criar diferentes tipos de array, type: 0-Crescente, 1-Decrescente, 2-Elementos Iguais, 3-Desordenados
     public static Integer[] arrayInt(int n, int type) {
-        Integer[] array = new Integer[n]; // Inicializa o array com o tamanho n
-        Random random = new Random(); // Instancia um gerador de números aleatórios
+        Integer[] array = new Integer[n]; 
+        Random random = new Random(); /
 
         switch (type) {
-            case 0: // array em ordem crescente
+            case 0: 
                 for (int i = 0; i < n; i++) {
-                    array[i] = i; // Preenche com valores de 0 a n-1
+                    array[i] = i;
                 }
                 break;
 
-            case 1: // array em ordem decrescente
+            case 1: 
                 for (int i = 0; i < n; i++) {
-                    array[i] = n - 1 - i; // Preenche com valores de n-1 a 0
+                    array[i] = n - 1 - i; 
                 }
                 break;
 
-            case 2: // array com elementos repetidos
-                int valorRepetido = random.nextInt(100); // Gera um valor aleatório para repetir
+            case 2: 
+                int valorRepetido = random.nextInt(100); 
                 for (int i = 0; i < n; i++) {
-                    array[i] = valorRepetido; // Preenche todo o array com o mesmo valor
+                    array[i] = valorRepetido; 
                 }
                 break;
 
             case 3: // array aleatório
                 for (int i = 0; i < n; i++) {
-                    array[i] = random.nextInt(n); // Gera números aleatórios de 0 a 99
+                    array[i] = random.nextInt(n); 
                 }
                 break;
 
@@ -37,9 +38,9 @@ public class SuportArray {
             break;
         }
         
-        return array; // Retorna o array gerado
-    }
+        return array;
 
+    //Mostra todo o array
     public static void mostrarArray(Integer[] array) {
         System.out.print("[");
         for (int i = 0; i < array.length; i++) {
@@ -51,33 +52,34 @@ public class SuportArray {
         System.out.println("]");
     }
 
+     //Criar diferentes tipos de array(int), type: 0-Crescente, 1-Decrescente, 2-Elementos Iguais, 3-Desordenados
     public static int[] arrayRInt(int n, int type) {
-        int[] array = new int[n]; // Initialize the array with size n
-        Random random = new Random(); // Instantiate a random number generator
+        int[] array = new int[n]; 
+        Random random = new Random(); 
 
         switch (type) {
-            case 0: // array in ascending order
+            case 0: 
                 for (int i = 0; i < n; i++) {
-                    array[i] = i; // Fill with values from 0 to n-1
+                    array[i] = i; 
                 }
                 break;
 
-            case 1: // array in descending order
+            case 1:
                 for (int i = 0; i < n; i++) {
-                    array[i] = n - 1 - i; // Fill with values from n-1 to 0
+                    array[i] = n - 1 - i; 
                 }
                 break;
 
-            case 2: // array with repeated elements
-                int valorRepetido = random.nextInt(100); // Generate a random value to repeat
+            case 2: 
+                int valorRepetido = random.nextInt(100); 
                 for (int i = 0; i < n; i++) {
-                    array[i] = valorRepetido; // Fill the entire array with the same value
+                    array[i] = valorRepetido;
                 }
                 break;
 
             case 3: // random array
                 for (int i = 0; i < n; i++) {
-                    array[i] = random.nextInt(n); // Generate random numbers from 0 to n-1
+                    array[i] = random.nextInt(n); 
                 }
                 break;
 
@@ -85,7 +87,7 @@ public class SuportArray {
                 break;
         }
 
-        return array; // Return the generated array
+        return array; 
     }
 
       public static void mostrarRArray(int[] array) {
@@ -100,12 +102,12 @@ public class SuportArray {
     }
 
 
+    //Converte array de Int para um equivalente em Flot, utilizado para testes do BucketSort
     public static float[] convertToFloatInRange(int[] intArray) {
-        // Encontra o valor mínimo e máximo no array de inteiros
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
 
-        // Determina os valores mínimo e máximo no array
+   
         for (int num : intArray) {
             if (num < min) {
                 min = num;
@@ -115,12 +117,10 @@ public class SuportArray {
             }
         }
 
-        // Cria o array de floats normalizados
         float[] floatArray = new float[intArray.length];
 
-        // Converte cada inteiro para um valor no intervalo [0, 1]
         for (int i = 0; i < intArray.length; i++) {
-            floatArray[i] = (float) (intArray[i] - min) / (max - min);  // Normaliza o valor
+            floatArray[i] = (float) (intArray[i] - min) / (max - min);  
         }
 
         return floatArray;
