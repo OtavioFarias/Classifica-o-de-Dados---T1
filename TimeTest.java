@@ -15,9 +15,8 @@ public class TimeTest {
         // args[1]: quantidade de testes
         // args[2]: tipo de array
 
-        int k = 0; // contador para os testes
+        int k = 0; 
 
-        // Listas para armazenar os tempos de cada método
         List<Long> temposInsertion = new ArrayList<>();
         List<Long> temposBubble = new ArrayList<>();
         List<Long> temposSelection = new ArrayList<>();
@@ -26,7 +25,7 @@ public class TimeTest {
         List<Long> temposMerge = new ArrayList<>();
         List<Long> temposQuick = new ArrayList<>();
 
-        // Loop para os testes
+      
         while (k < Integer.parseInt(args[1])) {
             Integer[] arrayTest = SuportArray.arrayInt(Integer.parseInt(args[0]), Integer.parseInt(args[2]));
 	
@@ -77,7 +76,7 @@ public class TimeTest {
             // Quick Sort
             Integer[] arrayQuick = arrayTest.clone();
             t_ini = System.nanoTime();
-//            Sorting.quick(arrayQuick, 0, Integer.parseInt(args[0]) - 1);
+            Sorting.quick(arrayQuick, 0, Integer.parseInt(args[0]) - 1);
             t_fim = System.nanoTime();
             temposQuick.add(t_fim - t_ini);
             
@@ -85,19 +84,19 @@ public class TimeTest {
             k++;
         }
 
-        // Nome do arquivo CSV
+       
         String nomeArquivoCSV = "TemposExecucao" + args[0] + "entradas" + "tipoArray" + args[2] + ".csv";
 
-        // Salvar os dados no arquivo CSV
+        
         try (PrintWriter writer = new PrintWriter(new File(nomeArquivoCSV))) {
-            // Cabeçalho
+          
             writer.print("Método de Ordenação");
             for (int i = 0; i < Integer.parseInt(args[1]); i++) {
                 writer.print(",Teste " + (i + 1));
             }
             writer.println();
 
-            // Escrever os tempos para cada método
+            
             writer.print("Insertion Sort");
             for (Long tempo : temposInsertion) writer.print("," + tempo);
             writer.println();
